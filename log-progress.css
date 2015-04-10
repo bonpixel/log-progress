@@ -1,0 +1,198 @@
+/* ************************* */
+/* BEGIN ProgressTracker CSS */
+/* ************************* */
+
+.progressTrackerWrap {
+  position: relative;
+}
+
+.progressTrackerWrap + .progressTrackerWrap {
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+
+
+  .introMessage {
+    text-align: center;
+    line-height: 75px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -37.5px;
+    margin-left: -50%;
+    width: 100%;
+  }
+
+  .introMessage .fa{
+    line-height: 50px;
+    vertical-align: baseline;
+  }
+
+  .stagesWrap {
+    min-height: 75px;
+    background-color: #eee;
+    padding: 30px;
+    position: relative;
+  }
+
+  .stages {
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-direction: row;
+    flex-direction: row;
+
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    padding: 50px 50px 10px 0;
+    height: 15px;
+  }
+
+  .stageItem {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    z-index: 2;
+    background-color: #eee;
+
+    -webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -ms-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+    transition: all 250ms ease;
+  }
+  .stageItem .fa {
+    font-size: 16px
+  }
+
+  .stageItem:before,
+  .stageItem:after {
+    z-index: -1;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 16px;
+    height: 100%;
+    background-color: #eee;
+    content: "\00a0";
+  }
+
+  .stageItem:before {
+    left: -4px;
+  }
+  .stageItem:after {
+    right: -7px;
+  }
+
+  .stageItem.isInProgress {
+    color: #E28835;
+  }
+  .stageItem.isInProgress .text {
+    border-color: #E28835;
+  }
+
+  .stageItem.isComplete {
+    color: #659C65;
+  }
+  .stageItem.isComplete .text {
+    border-color: #659C65;
+  }
+
+
+  .stageItem.isWarning {
+    color: rgb(214, 189, 54);
+  }
+  .stageItem.isWarning .text{
+    border-color: rgb(214, 189, 54);
+  }
+
+
+  .stageItem.isError {
+    color: #E23535;
+  }
+  .stageItem.isError .text{
+    border-color: #E23535;
+  }
+
+
+  .stageItem .fa-circle-o-notch {
+    font-size: 1em;
+    width: 14px;
+    height: 13px;
+    transform-origin: center center;
+    margin-left: 0;
+    text-align: center;
+    letter-spacing: 0;
+  }
+  .stageItem .fa-circle-o-notch:before {
+    margin-left: 1px;
+  }
+
+  .stageItem .text{
+    /*display: none;*/
+    display: block;
+    -webkit-transform-origin: bottom left;
+    transform-origin: bottom left;
+
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+    position: absolute;
+    left: 1px;
+    bottom: 11px;
+    border-left: 1px solid #111;
+    padding-left: 5px;
+  }
+
+  /*Unactive state*/
+  .progressTrackerWrap.unactive .stageItem {
+    color: #bbb;
+  }
+
+  .progressTrackerWrap.unactive .stageItem .text{
+    border-color: #bbb;
+  }
+
+  .progressTrackerWrap.unactive .preProgressBar,
+  .progressTrackerWrap.unactive .progressBar {
+    background-color: #bbb;
+  }
+
+
+  .progressTrackerWrap.unactive .stageItem.isError {
+    color: #666;
+  }
+  .progressTrackerWrap.unactive .stageItem.isError .text{
+    border-color: #666;
+  }
+
+  .preProgressBar,
+  .progressBar {
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 17px;
+    transiton: all 250ms ease;
+    -webkit-transition: all 250ms ease;
+  }
+
+  .preProgressBar {
+    z-index: 0;
+    background-color: #E28835;
+  }
+
+  .preProgressBar.isError {
+    background-color: #E23535;
+  }
+
+  .progressBar {
+    z-index: 1;
+    background-color: #659C65;
+  }
+
+/* *********************** */
+/* END ProgressTracker CSS */
+/* *********************** */
